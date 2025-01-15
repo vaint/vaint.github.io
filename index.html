@@ -10,28 +10,24 @@
   
   
 <script type='text/javascript'>
-    const IDPhotoURLSchema = "weixin://dl/business/?appid=wx1234123123&path=pages/home/index&query=";
-    window.onload = function() {　　　
-        console.log("onload");　
+    const IDPhotoURLSchema = "weixin://dl/business/?appid=wxb112a62be491bc02&env_version=develop&path=pages/home/index&query=";
+    window.onload = function() {
         var url = IDPhotoURLSchema;
         var params = getQueryParams();
         if (params.enterFrom) {
             var query = "enterFrom=" + params.enterFrom;
             url += encodeURIComponent(query);
         }
-        console.log("url="+url);　
         window.location.href = url;
     }
 
     function getQueryParams() {
         const query = window.location.search;
-        console.log("query="+query);
         if (query.length == 0) {
             return {};
         }
 
         let queryString = query.substring(1);
-        console.log('queryString='+queryString);
         let queryArray = queryString.split("&");
 
         let params = {};
@@ -39,7 +35,6 @@
             let pair = queryArray[i].split("=");
             params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
         }
-        console.log('params='+JSON.stringify(params));
         return params;
     }
 </script>
